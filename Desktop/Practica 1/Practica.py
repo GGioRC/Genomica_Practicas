@@ -4,6 +4,7 @@ INTEGRANTES:
 Dozal Magnani Diego
 Ramírez Cortés Hugo Giovani
 """
+#####
 a = "T1"
 fichero = open("Cadenas/" + a + ".txt")
 archivo = fichero.readlines()
