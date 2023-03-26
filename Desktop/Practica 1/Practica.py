@@ -100,7 +100,8 @@ def Traduccion_inicio_fin(cad):
 
 
 def ejecucion(file_name):
-		fichero = open("Cadenas/" + file_name + ".txt")
+		#fichero = open("Cadenas/" + file_name + ".txt")
+		fichero = open(file_name,'r')
 		archivo = fichero.readlines()
 		cadena = archivo[1]
 		fichero.close()
@@ -123,18 +124,18 @@ if __name__ == '__main__':
 
 	succed = False 
 
-	path = 'Cadenas'
-	read_files = os.listdir(path)
+	read_files = os.listdir('.')
 
 	while not succed:
 		print("Posibles arhivos a leer :")
-		[print("> "+path.strip(".txt")) for path in read_files]
+		[print("> "+path.strip(".txt")) for path in read_files if path.find('.txt') != -1]
 		print("Escriba el nombre en mayúsculas del archivo a leer")
 		a = input('Nombre del archivo :  ')	
+		abs_path  = os.path.abspath(a+".txt")
 		#a = "KPHS"
 		try:
-
-			ejecucion(a)
+			print(abs_path)
+			ejecucion(abs_path)
 			succed = True 	
 		except:
 			print("Ocurrio un error al leer el archivo o no existe")
