@@ -105,8 +105,16 @@ def ejecucion(file_name):
 		cadena = archivo[1]
 		fichero.close()
 
+		print(">>>>>------------------<<<<<")
+		print("Cadena Complementaria :")
 		a = Convertir_Complemento(cadena)
+		print(a)
+		print(">>>>>------------------<<<<<")
+		print("Cadena Transcripcion (Secuencia RNA):")
 		b = Transcripcion(cadena)
+		print(b)
+		print(">>>>>------------------<<<<<")
+		print("Traduccion  (Secuencia de aminoacidos):")
 		c = Traduccion_inicio_fin(b)
 		print(c)
 
@@ -120,7 +128,7 @@ if __name__ == '__main__':
 
 	while not succed:
 		print("Posibles arhivos a leer :")
-		[print(path.strip(".txt")) for path in read_files]
+		[print("> "+path.strip(".txt")) for path in read_files]
 		print("Escriba el nombre en mayúsculas del archivo a leer")
 		a = input('Nombre del archivo :  ')	
 		#a = "KPHS"
