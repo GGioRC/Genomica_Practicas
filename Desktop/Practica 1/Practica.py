@@ -5,11 +5,8 @@ Dozal Magnani Diego
 Ramírez Cortés Hugo Giovani
 """
 #####
-a = "T1"
-fichero = open("Cadenas/" + a + ".txt")
-archivo = fichero.readlines()
-cadena = archivo[1]
-fichero.close()
+
+
 
 codones_traduccion = {"GCU":"A", "GCC":"A", "GCA":"A", "GCG":"A", # Alanina
     # Cisteina
@@ -100,7 +97,37 @@ def Traduccion_inicio_fin(cad):
 				cadena_traducida += Traduccion(cad[3*i:3*i+3])
 	else:
 		return 'Tu cadena de ARN no comienza con los codones AUG ó GUG'
-a = Convertir_Complemento(cadena)
-b = Transcripcion(cadena)
-c = Traduccion_inicio_fin(b)
-print(c)
+
+
+def ejecucion(file_name):
+		fichero = open("Cadenas/" + file_name + ".txt")
+		archivo = fichero.readlines()
+		cadena = archivo[1]
+		fichero.close()
+
+		a = Convertir_Complemento(cadena)
+		b = Transcripcion(cadena)
+		c = Traduccion_inicio_fin(b)
+		print(c)
+
+
+if __name__ == '__main__': 
+
+	succed = False 
+
+	path = 'Cadenas'
+	read_files = os.listdir(path)
+
+	while not succed:
+		print("Posibles arhivos a leer :")
+		[print(path.strip(".txt")) for path in read_files]
+		print("Escriba el nombre en mayúsculas del archivo a leer")
+		a = input('Nombre del archivo :  ')	
+		#a = "KPHS"
+		try:
+
+			ejecucion(a)
+			succed = True 	
+		except:
+			print("Ocurrio un error al leer el archivo o no existe")
+	
