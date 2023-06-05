@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import re
+import sys
 
 # Para el metodo UPGMA y otros si se usan
 from scipy.cluster.hierarchy import dendrogram, linkage
@@ -383,15 +384,42 @@ lista_gen = leer_archivo(archivo_txt)
 """for i in range(len(lista_gen)):
     print(ContenidoCG(lista_gen[i], 700), lista_nombres_gen[i])"""
 
-GraficarContenido(lista_gen, lista_nombres_gen, ContenidoAT)
-"""ArbolUPGMA(
+#GraficarContenido(lista_gen, lista_nombres_gen, ContenidoAT)
+
+
+"""
+ArbolUPGMA(
     ArbolUPGMADistancia(Jaccard),
     ArbolUPGMADistancia(Hamming),
     ArbolUPGMADistancia(PorContenido),
 )
+
+
 ArbolWPGMA(
     ArbolUPGMADistancia(Jaccard),
     ArbolUPGMADistancia(Hamming),
     ArbolUPGMADistancia(PorContenido),
-)"""
-print(lista_nombres_gen)
+)
+"""
+#print(lista_nombres_gen)
+
+
+if __name__ == '__main__':
+
+    option =  int(sys.argv[2])
+
+    if(option ==1):
+        GraficarContenido(lista_gen, lista_nombres_gen, ContenidoAT)
+    if(option==2):
+        ArbolUPGMA(
+        ArbolUPGMADistancia(Jaccard),
+        ArbolUPGMADistancia(Hamming),
+        ArbolUPGMADistancia(PorContenido),
+        )
+    if(option==3):
+        ArbolWPGMA(
+        ArbolWPGMADistancia(Jaccard),
+        ArbolWPGMADistancia(Hamming),
+        ArbolWPGMADistancia(PorContenido),
+    )
+
